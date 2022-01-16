@@ -1,0 +1,93 @@
+<h3>Today Date: {{ todayDate | date: "mediumDate" }}</h3>
+
+<div class="mb-3">
+  <label for="" class="form-label">Select Category:</label>
+  <select name="cat" id="catDDL" class="form-select" [(ngModel)]="selectedCat" #selectItem
+    (change)="showProducts(selectItem.value)">
+
+    <option value="">All</option>
+    <option *ngFor="let cat of StaticCat" [value]="cat">{{cat}}</option>
+  </select>
+</div>
+<hr />
+
+<button mat-flat-button color="accent" (click)="addData()" class="demo-button">
+  Add data
+</button>
+<button mat-flat-button color="warn" (click)="removeData()" class="demo-button m-2">
+  Remove data
+</button>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>View</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let prd of ProductList; let i=index" [ngSwitch]="prd.quantity">
+      <td>{{ i + 1 }}</td>
+      <td [ngClass]="{
+          'text-danger': prd.quantity == 0,
+          'text-warning': prd.quantity == 1,
+          'text-primary': prd.quantity > 2
+        }">
+        {{ prd?.title | uppercase }}
+      </td>
+      <td>{{ prd.price | currency: "EGP":"symbol" }}</td>
+      <td *ngSwitchCase="0">out of stock</td>
+      <td *ngSwitchCase="1">Last item</td>
+      <td *ngSwitchCase="2">Two items only available</td>
+      <td *ngSwitchDefault>
+        <div *ngIf="prd.quantity; else OutOfStock">{{ prd?.quantity }}</div>
+        <ng-template #OutOfStock>Out of Stock</ng-template>
+      </td>
+      <td>{{ prd.desc }}</td>
+      <td><img src="{{ImagesUrl}}{{prd.imageSrc}}" alt="" width="200px" height="200px"></td>
+      <td>
+        <a class="btn btn-primary" routerLink="//admin/Account/Products/{{prd._id}}" role="button">View</a>
+      </td>
+      <td>
+        <a class="btn btn-primary" (click)="deleteProduct(prd._id)" role="button">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
+  <mat-icon>more_vert</mat-icon>
+ </button> -->
+<!-- </button>
+<mat-menu #menu="matMenu" yPosition="below">
+<button mat-menu-item>view</button>
+<button mat-menu-item>edit</button>
+<button mat-menu-item>delete</button>
+</mat-menu> -->
+
+<!-- <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+ -->
+
+<!-- <mat-menu #menu1="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voice mail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu> -->

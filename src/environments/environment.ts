@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APIURL:'https://noon-ecommerce.herokuapp.com/api',
+  ImagesURL:'https://noon-ecommerce.herokuapp.com/images/',
+  
 };
 
 /*

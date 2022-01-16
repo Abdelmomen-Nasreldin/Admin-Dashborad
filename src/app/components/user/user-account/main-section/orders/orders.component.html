@@ -1,0 +1,55 @@
+<!-- <div class="container justify-content-center"> -->
+<div class="mb-3">
+  <label for="" class="form-label">Select Category:</label>
+  <select name="user" id="userDD" class="form-select" [(ngModel)]="selectedUser" #selectUser
+    (change)="showOrderOfUser(selectUser.value)">
+    <option value="">All</option>
+    <option *ngFor="let user of Users" [value]="user._id">
+      {{ user.username }}
+    </option>
+  </select>
+</div>
+<hr />
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body table-responsive">
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>OrderId</th>
+            <th>UserId</th>
+            <th>Products</th>
+            <th>Address</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of OrderList; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ order._id }}</td>
+            <td>{{ order.userId }}</td>
+            <td>
+              <ul *ngFor="let p of order.products">
+                <li>productId: {{ p.productId }}</li>
+                <li>productQuantity: {{ p.quantity }}</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>city: {{ order.address.city }}</li>
+                <li>area: {{ order.address.area }}</li>
+                <li>street: {{ order.address.street }}</li>
+              </ul>
+            </td>
+            <td>{{ order.amount }}</td>
+            <td [ngStyle]="{'color': order.status==='pending'?'darkred':'green'}">{{ order.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

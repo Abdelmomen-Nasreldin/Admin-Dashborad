@@ -1,0 +1,23 @@
+
+<!-- product card -->
+<mat-card class="example-card">
+  <!-- <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+
+  </mat-card-header> -->
+  <img class="card-img-top" src="{{ImagesUrl}}{{prd?.imageSrc}}" alt="Card image cap">
+  <div class="card-body">
+      <p class="card-title">Name: {{prd?.title}}<p>
+      <p class="card-text">Price: {{prd?.price}}</p>
+      <p class="card-text">Description: {{prd?.desc}}</p>
+      <hr>
+      <a class="btn btn-primary" (click)="goBack()">Go Back</a>
+  </div>
+  <mat-card-actions class="d-flex justify-content-around">
+    <a mat-button>View</a>
+    <a mat-button>Edit</a>
+    <a mat-button>Delete</a>
+
+
+  </mat-card-actions>
+</mat-card>

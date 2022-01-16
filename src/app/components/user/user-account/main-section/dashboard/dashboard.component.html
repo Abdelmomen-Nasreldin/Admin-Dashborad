@@ -1,0 +1,34 @@
+<highcharts-chart
+  *ngIf="!loading"
+  [Highcharts]="Highcharts"
+  [options]="chartOptionsConsumption"
+
+  style="width: 100%; height: 400px; display: block;"
+></highcharts-chart>
+
+<h1 *ngIf="loading">loading.......</h1>
+
+
+<highcharts-chart
+*ngIf="!loading"
+
+  [Highcharts]="Highcharts"
+  [options]="chartYearlyConsumption"
+
+  style="width: 100%; height: 400px; display: block;"
+></highcharts-chart>
+
+<!-- <div class="d-flex justify-content-between row">
+  <mat-card class="w-50">
+        <app-card-dashboard label="New Users" total="12k" percentage="50" [data]="cards"></app-card-dashboard>
+  </mat-card>
+  <mat-card class="w-50">
+      <app-card-dashboard></app-card-dashboard>
+  </mat-card>
+  <mat-card class="w-50">
+    <app-card-dashboard></app-card-dashboard>
+  </mat-card>
+  <mat-card class="w-50">
+      <app-card-dashboard></app-card-dashboard>
+  </mat-card>
+</div> -->

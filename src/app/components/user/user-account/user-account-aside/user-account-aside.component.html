@@ -1,0 +1,91 @@
+<div class="nav-item Ahlan ">
+  <p class="mt-3 text-center font-weight-bold">Ahlan Admin</p>
+  <p class="text-center font-weight-bold"><a (click)="logOut()" class="btn btn-secondary">Logout</a></p>
+  <hr class="m-0">
+</div>
+<nav id="sidebarMenu" class="sidebar">
+  <div class="position-sticky pt-3 asideDiv">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/Dashboard']" routerLinkActive="router-link-active">
+          <span data-feather="file">
+            <img src="../../../../../assets/aside/addresses_menu_icon_v3.svg" alt="" />
+          </span>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" [routerLink]="['/admin/Account/Orders']"
+          routerLinkActive="router-link-active">
+          <span data-feather="home">
+            <img src="../../../../../assets/aside/orders_menu_icon_v3.svg" alt="" />
+          </span>
+          Orders
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/Payments']" routerLinkActive="router-link-active">
+          <span data-feather="shopping-cart">
+            <img src="../../../../../assets/aside/payment_menu_icon_v3.svg" alt="" />
+          </span>
+          Payments
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/Products']" routerLinkActive="router-link-active">
+          <span data-feather="users">
+            <img src="../../../../../assets/aside/noon_credits_menu_icon_v3.svg" alt="" />
+          </span>
+          Products
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/AddProducts']" routerLinkActive="router-link-active">
+          <span data-feather="users">
+            <img src="../../../../../assets/aside/noon_credits_menu_icon_v3.svg" alt="" />
+          </span>
+          Add Products
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/Customers']" routerLinkActive="router-link-active">
+          <span data-feather="bar-chart-2">
+            <img src="../../../../../assets/aside/returns_menu_icon_v3.svg" alt="" />
+          </span>
+          Customers
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/AddCustomers']" routerLinkActive="router-link-active">
+          <span data-feather="bar-chart-2">
+            <img src="../../../../../assets/aside/returns_menu_icon_v3.svg" alt="" />
+          </span>
+          Add Customers
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/Preferences']" routerLinkActive="router-link-active">
+          <span data-feather="layers">
+            <img src="../../../../../assets/aside/preferences_menu_icon_v3.svg" alt="" />
+          </span>
+          Preferences
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/Account/Profile']" routerLinkActive="router-link-active">
+          <span data-feather="layers">
+            <img src="../../../../../assets/aside/profile_menu_icon_v3.svg" alt="" />
+          </span>
+          Profile
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card m-5 p-3">
+    <div class="card-body">
+      <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <!-- <th>Password</th> -->
+            <th>Image</th>
+            <th>View</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of UserList; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <!-- <td>{{user.password}}</td> -->
+            <td><img src="{{ImagesUrl}}{{user.imageSrc}}" alt="" width="200px" height="200px"></td>
+            <td>
+              <a class="btn btn-primary" routerLink="//admin/Account/Customers/{{user._id}}" role="button">View</a>
+            </td>
+            <td>
+              <a class="btn btn-primary" (click)="deleteUser(user._id)" role="button">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

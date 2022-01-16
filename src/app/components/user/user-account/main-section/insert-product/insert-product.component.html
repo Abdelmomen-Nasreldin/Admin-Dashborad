@@ -1,0 +1,61 @@
+<form class="row g-3" [formGroup]="myForm">
+    <div class="col-12">
+        Value:{{ myForm.value| json }}
+</div>
+
+    <div class="col-md-6">
+        <label for="inputState" class="form-label">Category</label>
+      <!-- <select id="inputState" name="CategoryList" class="form-select" [(ngModel)]=ProductCategory > -->
+        <select name="catg" id="catDDL" class="form-select w-25" formControlName="categories">
+            <option selected>Mobiles</option>
+            <option >Clothes</option>
+            <option >Laptops</option>
+      </select>
+    </div>
+    
+    <div class="col-12">
+      <label for="Name" class="form-label">Product Name</label>
+      <input type="text" name="Productname" class="form-control" id="inputName" placeholder="XXX Device" formControlName="title" required>
+      <div class="alert alert-success col-6 " role="alert" [hidden]="!myForm.controls['title'].valid">
+        Valid Name Criteria
+      </div>
+    </div>
+
+    <div class="col-12">
+        <label for="description" class="form-label">Product descripton</label>
+        <input type="text" name="Productdesc" class="form-control" id="inputName" placeholder="XXX Device" formControlName="desc" required>
+        <div class="alert alert-success col-6 " role="alert" [hidden]="!myForm.controls['desc'].valid">
+          Valid description Criteria
+        </div>
+      </div> 
+
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Price</label>
+      <input type="number" name="ProductPrice" class="form-control" id="inputPrice" placeholder="$ 000" formControlName="price"  required>
+      <div class="alert alert-success col-6 " role="alert" [hidden]="!myForm.controls['price'].valid">
+        Valid Price Criteria
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Quantity</label>
+      <input type="number" name="ProductQuantity" placeholder="0" class="form-control" id="inputQuantity" formControlName="quantity" required>
+      <div class="alert alert-success col-6 " role="alert" [hidden]="!myForm.controls['quantity'].valid">
+        Valid Quantity Range
+      </div>
+    </div>
+    <!-- for single image uploading -->
+    <div class="col-md-8">
+        <label for="imageinput" class="form-label">Image </label>
+        <input type="file"  name="image" accept=".jpg, .jpeg, .png" class="form-control" id="inputImage" (change)="upload($event)"  >
+    </div>
+   
+    <!-- <div class="col-md-2">
+      <label for="inputZip" class="form-label">Product ID</label>
+      <input type="number" name="ProductID" class="form-control" id="inputID" formControlName="id" required>
+    </div> -->
+   
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" (click)=addProduct(myForm.value)> Add Product</button>
+    </div>
+    
+  </form>
